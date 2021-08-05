@@ -1,2 +1,1 @@
-# django_container
-Django placeholder container
+# Django placeholder app
