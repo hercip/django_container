@@ -1,6 +1,7 @@
 FROM python:3
 LABEL maintainer="cip@ibit.ro"
-ARG CODE_LOCATION
+# ARG CODE_LOCATION
+ENV CODE_LOCATION=/opt/hc/django
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN \
@@ -18,7 +19,7 @@ RUN \
   cd $HOME && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower &&\
   pip install -r ${CODE_LOCATION}/code/requirements.dev.txt
 ADD .devcontainer/.* /root/
-WORKDIR ${CODE_LOCATION}
+WORKDIR ${CODE_LOCATION}/code/
 ENV PYTHONUNBUFFERED 1
-ENTRYPOINT ["code/entrypoint.sh"]
-CMD ["python", "code/manage.py", "runserver", "0.0.0.0:8000"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]

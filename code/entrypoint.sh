@@ -1,6 +1,4 @@
-#!/bin/bash
-
-cd /opt/up/vo
+#!/bin/zsh
 
 echo "Running migrations start"
 python manage.py dbwait
