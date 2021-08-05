@@ -1,0 +1,41 @@
+{
+  "name": "UnderPinned Backend",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "python_backend",
+  "workspaceFolder": "/opt/hc/django",
+  "settings": {
+		"terminal.integrated.profiles.linux": {
+      "zsh":  {"path": "zsh"},
+      "bash": {"path": "bash"},
+      "fish": {"path": "fish"},
+      "tmux": {"path": "tmux", "icon": "terminal-tmux"},
+      "pwsh": {"path": "pwsh", "icon": "terminal-powershell"}
+    }
+	},
+  "extensions": [
+    "bigonesystems.django",
+    "bibhasdn.django-snippets",
+    "bibhasdn.django-html",
+    "bibhasdn.django-html",
+    "pkief.material-icon-theme",
+    "johnpapa.vscode-peacock",
+    "phplasma.csv-to-table",
+    "batisteo.vscode-django",
+    "hediet.vscode-drawio",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "lonefy.vscode-js-css-html-formatter",
+    "zainchen.json",
+    "magicstack.magicpython",
+    "bierner.markdown-mermaid",
+    "esbenp.prettier-vscode",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "donjayamanne.python-extension-pack",
+    "littlefoxteam.vscode-python-test-ad",
+    "mechatroner.rainbow-csv",
+    "foxundermoon.shell-format",
+    "adpyke.vscode-sql-formatter",
+    "kevinglasson.cornflakes-linter"
+  ],
+}

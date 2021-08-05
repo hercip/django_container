@@ -1,0 +1,19 @@
+{
+  "editor.fontFamily": "Fira Code Retina, Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "Hasklug NF",
+  "editor.rulers": [
+    {
+      "column": 79,    // spacing of 1st column from left
+      "color": "#fdb274"   // orange, Go Vols!
+    },
+    {
+      "column": 120,      // third ruler
+      "color": "#f04f4f"  // JS!
+    },
+  ],
+  "cornflakes.linter.executablePath": "/usr/local/bin/flake8",
+  "cornflakes.linter.run": "onType",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+
+}

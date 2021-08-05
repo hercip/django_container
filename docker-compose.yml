@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: registry.gitlab.com/hed-wise/libs/multidb_postgres:latest
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+
+  python_backend:
+    container_name: ${COMPOSE_PROJECT_NAME}.dev.backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        CODE_LOCATION: ${CODE_LOCATION}
+    # image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}-dev
+    volumes:
+      - .:/opt/hc/ctb
+      - ~/.ssh:/root/.ssh
+    ports:
+      - "${BACKEND_PORT}:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=app.settings.dev
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - DEBUG=True
+      - ALLOWED_HOSTS=*
+      # - MIDDLEWARE=corsheaders.middleware.CorsMiddleware
+      # - CORS_ORIGIN_ALLOW_ALL=True
+      # - SECURE_CONTENT_TYPE_NOSNIFF=False
+    depends_on:
+      - postgres
