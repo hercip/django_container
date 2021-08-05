@@ -29,5 +29,5 @@ jobs:
       -
         name: Publish
         run: |
-          docker tag django-dev django-dev
+          docker tag django-dev hercip/django-dev
           docker push hercip/django-dev
