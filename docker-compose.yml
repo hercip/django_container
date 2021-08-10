@@ -19,7 +19,7 @@ services:
         CODE_LOCATION: ${CODE_LOCATION}
     # image: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}-dev
     volumes:
-      - ./code:/opt/hc/django
+      - ./code:/opt/hc/django/code
       - ~/.ssh:/root/.ssh
     ports:
       - "${BACKEND_PORT}:8000"

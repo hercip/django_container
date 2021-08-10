@@ -12,14 +12,14 @@ RUN \
 ENV DEBIAN_FRONTEND=dialog
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && /usr/sbin/locale-gen
 ENV SHELL /bin/zsh
-ADD code ${CODE_LOCATION}/
+ADD . ${CODE_LOCATION}/
 RUN \
   wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true && \
   git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k && \
   cd $HOME && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower &&\
-  pip install -r ${CODE_LOCATION}/requirements.dev.txt
+  pip install -r ${CODE_LOCATION}/code/requirements.dev.txt
 ADD .devcontainer/.* /root/
-WORKDIR ${CODE_LOCATION}/
+WORKDIR ${CODE_LOCATION}/code/
 ENV PYTHONUNBUFFERED 1
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["python", "./manage.py", "runserver", "0.0.0.0:8000"]
